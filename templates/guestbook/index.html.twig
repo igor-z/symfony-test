@@ -1,0 +1,31 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <h1>Guestbook</h1>
+
+    <table class="table well">
+        <thead>
+            <tr>
+                <th scope="col">{{ knp_pagination_sortable(pagination, 'User Name', 'message.user_name') }}</th>
+                <th scope="col">{{ knp_pagination_sortable(pagination, 'E-mail', 'message.email') }}</th>
+                <th scope="col">{{ knp_pagination_sortable(pagination, 'Created at', 'message.created_at') }}</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {%  for message in pagination %}
+                <tr>
+                    <td><a href="{{ path('view', {'id': message.id}) }}">{{ message.userName }}</a></td>
+                    <td><a href="{{ path('view', {'id': message.id}) }}">{{ message.email }}</a></td>
+                    <td><a href="{{ path('view', {'id': message.id}) }}">{{ message.createdAt|date('d.m.Y H:i:s') }}</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div>
+        {{ knp_pagination_render(pagination) }}
+    </div>
+
+    <a class="btn btn-success" href="{{ path('create') }}">Create</a>
+{% endblock %}

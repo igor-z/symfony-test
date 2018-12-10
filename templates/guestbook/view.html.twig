@@ -1,0 +1,17 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <h1>View #{{ message.id }}</h1>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="well well-lg">
+                <p><b>User name:</b> {{ message.userName }}</p>
+                <p><b>Email:</b> {{ message.email }}</p>
+                <p><b>Homepage:</b> {{ message.homepage }}</p>
+                <p><b>Ip:</b> {{ message.ip }}</p>
+                <p><b>User Agent:</b> {{ message.userAgent }}</p>
+                <p><b>Text:</b> {{ message.text }}</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
