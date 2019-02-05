@@ -12,19 +12,19 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class IndexController extends Controller
 {
-	/**
-	 * @Route("/")
+    /**
+     * @Route("/")
      * @param Request $request
      * @param MessageService $messageService
      * @param PaginatorInterface $paginator
      * @return Response
-	 */
-	public function index(Request $request, MessageService $messageService, PaginatorInterface $paginator)
-	{
-		return $this->render('guestbook/index.html.twig', [
-		    'pagination' => $messageService->search($request, $paginator)
+     */
+    public function index(Request $request, MessageService $messageService, PaginatorInterface $paginator)
+    {
+        return $this->render('guestbook/index.html.twig', [
+            'pagination' => $messageService->search($request, $paginator)
         ]);
-	}
+    }
 
     /**
      * @Route("/create", name="create")
